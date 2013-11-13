@@ -1,39 +1,56 @@
 <body>
-  <canvas id="gameCanvas" width="6000" height="500"></canvas>
-  <script>
-    var canvas = document.getElementById('gameCanvas');
-    var context = canvas.getContext('2d');
-	
-	//свойтсва
-	context.lineWidth = 4;
-	context.strokeStyle = 'blue';
-	context.fillStyle = '#8ED6FF';
-    
-	// Линия
-	context.beginPath();
-	context.moveTo(8, 9);
-	context.lineTo(40,100);
-	context.stroke();
+
+  <canvas id="gameCanvas" width="6000" height="500">
+  <script src="http://code.createjs.com/createjs-2013.09.25.min.js"></script>
+   <script>
+	var stage = new createjs.Stage("gameCanvas");
+
+	//линия
+	g = new createjs.Graphics()
+              .beginStroke("#000000")
+              .moveTo(8,9).lineTo(40,100);
+	line = new createjs.Shape(g);
+	stage.addChild(line);
 	
 	
+	g  = new createjs.Graphics().beginFill("#FFEB70").drawRect(50, 60, 90, 30);
+	bg = new createjs.Shape(g);
+	stage.addChild(bg);
 	
-	//примитив
-	context.beginPath();
-	context.rect(50, 60, 90, 30);
-	context.fill();
-	context.stroke();
-	
-	
+	//Graphics().beginFill("#FFEB70");
+//Graphics().setStrokeStyle(6).beginStroke("#413D3D");
+
 	//текст
-	context.font = 'italic 40pt Calibri';
-	context.fillText('Hello World!', 100, 50);
+	var txt = new createjs.Text("Hello world", "bold 48pt Courier New", "#000000");	
+	txt.x = 20;
+	txt.y = 100;
+	stage.addChild(txt);
 	
 	
+	//картинка
+	
+	var image =  new createjs.Bitmap("FC_Lokomotiv.png");
+	image.x = 100;
+image.y = 200	
+	stage.addChild(image);
+
 	
 	
-	var img = new Image();
-	img.onload = function() { context.drawImage(img, 500, 40); };
-	img.src = '1707361_810387.jpg';
-	
-  </script>
+	image.addEventListener("click", hello);
+
+function hello(event)
+{
+       alert("clicked");
+}
+	createjs.Ticker.addEventListener("tick",tick);
+
+function tick()
+{
+//image.x = image.x + 10;
+       // ваш код
+	   //alert("tick");
+       stage.update();
+}
+	</script>
+  </canvas>
 </body>
