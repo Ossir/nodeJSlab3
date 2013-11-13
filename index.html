@@ -1,0 +1,39 @@
+<body>
+  <canvas id="gameCanvas" width="6000" height="500"></canvas>
+  <script>
+    var canvas = document.getElementById('gameCanvas');
+    var context = canvas.getContext('2d');
+	
+	//свойтсва
+	context.lineWidth = 4;
+	context.strokeStyle = 'blue';
+	context.fillStyle = '#8ED6FF';
+    
+	// Линия
+	context.beginPath();
+	context.moveTo(8, 9);
+	context.lineTo(40,100);
+	context.stroke();
+	
+	
+	
+	//примитив
+	context.beginPath();
+	context.rect(50, 60, 90, 30);
+	context.fill();
+	context.stroke();
+	
+	
+	//текст
+	context.font = 'italic 40pt Calibri';
+	context.fillText('Hello World!', 100, 50);
+	
+	
+	
+	
+	var img = new Image();
+	img.onload = function() { context.drawImage(img, 500, 40); };
+	img.src = '1707361_810387.jpg';
+	
+  </script>
+</body>
