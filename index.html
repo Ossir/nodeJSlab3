@@ -2,7 +2,18 @@
 
   <canvas id="gameCanvas" width="6000" height="500">
   <script src="http://code.createjs.com/createjs-2013.09.25.min.js"></script>
+   <script src="/socket.io/socket.io.js"></script>
    <script>
+  
+
+
+var socket = io.connect('http://batmanapp.herokuapp.com/');
+socket.on('news', function (data) {
+   console.log(data);
+   socket.emit('my other event', { my: 'data' });
+});
+
+   
 	var stage = new createjs.Stage("gameCanvas");
 
 	//линия
