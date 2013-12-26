@@ -148,27 +148,27 @@ function hello(event)
     alert(msg);
     // alert(counts.toString());
    //  alert(msg);
-    // VK.init(function() {
-    // VK.Api.call('wall.post', {
+     VK.init(function() {
+     VK.Api.call('wall.post', {
         
-    //         message: msg,
-    //         }, function(r) {    
-    //             if (r.error) {
-    //                 console.log(r.error);
-    //                 if (r.error.error_code == 10007) {
-    //                     alert('Для участия в акции необходимо разместить запись на стене.');
-    //                 }               
-    //                 if (r.error.error_code == 20) {
-    //                     alert('Произошла неизвестная ошибка, пожалуйста повторите еще раз.');
-    //                 }               
-    //                 if (r.error.error_code == 14) {
-    //                     alert('Произошла неизвестная ошибка, повторите поже.');                 
-    //                 }               
-    //                 return false;
-    //             }           
-    //             alert('Успешно размещено!');
-    //     });
-    // });
+            message: msg,
+            }, function(r) {    
+                if (r.error) {
+                    console.log(r.error);
+                    if (r.error.error_code == 10007) {
+                        alert('Для участия в акции необходимо разместить запись на стене.');
+                    }               
+                    if (r.error.error_code == 20) {
+                        alert('Произошла неизвестная ошибка, пожалуйста повторите еще раз.');
+                    }               
+                    if (r.error.error_code == 14) {
+                        alert('Произошла неизвестная ошибка, повторите поже.');                 
+                    }               
+                    return false;
+                }           
+                alert('Успешно размещено!');
+        });
+    });
      //  alert(++counts);
        //txtRes.text = ++counts;
 }
