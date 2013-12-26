@@ -29,9 +29,12 @@ VK.init(function() {
 });
      
 var socket = io.connect('http://batmanapp.herokuapp.com/');
-
+socket.on('saved', function(msg) {
+    
+    alert('News from server: ' + msg.pos);
+  });
    // socket.emit('my other event', { my: 'data' });
-   socket.emit('vkID', ownerID);
+   socket.emit('vkID', {id:ownerID});
    // socket.on('saved', function() {
     //        socket.emit('score', counts);
 

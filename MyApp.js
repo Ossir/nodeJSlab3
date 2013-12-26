@@ -23,14 +23,14 @@ io.configure(function () {
 
 io.sockets.on('connection', function (socket) {
   // socket.emit('news', { hello: 'world' });
-   socket.on('vkID', function(name) {
+   socket.on('vkID', function(data) {
 
- id = name;
+ id = data.id;
 
   });
   
    socket.on('score', function (score) {
-        socket.emit('saved', 'here');
+        socket.emit('saved', {pos:'here'});
          var user = {vkontakteID: id ,  ipAddress: ip, dateConnection: new Date(), clickScore:score};
          
     conn.collection('collectionName').findOne(
