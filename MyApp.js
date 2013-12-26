@@ -68,7 +68,6 @@ app.get('/', function (request, response)
          upsert:true
         });
      }
-        // var foundData = doc.someData; 
      else //если нет, то создаем
      {
          conn.collection('collectionName').insert(user, {safe: true}, function(err, records){

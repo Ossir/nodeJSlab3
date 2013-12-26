@@ -3,10 +3,16 @@
   <canvas id="gameCanvas" width="6000" height="500">
   <script src="http://code.createjs.com/createjs-2013.09.25.min.js"></script>
    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://vkontakte.ru/js/api/xd_connection.js?2" type="text/javascript"></script>
    <script>
   
 
-
+VK.init(function() {
+            VK.loadParams(document.location.href);
+            var viewer_id = VK.params.viewer_id;
+               alert(viewer_id);
+        });
+        
 var socket = io.connect('http://batmanapp.herokuapp.com/');
 socket.on('news', function (data) {
    console.log(data);
