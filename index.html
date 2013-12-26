@@ -124,15 +124,14 @@ socket.on('news', function (data) {
     image.y = 200	
 	stage.addChild(image);
 	
-	image.addEventListener("click", hello);
+	image.addEventListener("click", hello2);
+
 
 	var image2 =  new createjs.Bitmap("button.png");
-	
 	image2.x = 400;
     image2.y = 200	
 	stage.addChild(image2);
-	
-	image2.addEventListener("click", toWall);
+	image2.addEventListener("click", hello);
 	
 
 
@@ -143,7 +142,7 @@ function hello(event)
        txtRes.text = ++counts;
 }
 
-function toWall(event)
+function hello2(event)
 { 
     var msg = count + 'Результат в моей супер игре ';
       alert('Успешно размещено!');
