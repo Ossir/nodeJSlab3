@@ -18,9 +18,9 @@ VK.init(function() {
     function(data) // Callback - called when server-side API answers
     {
      // console.log( data );
-      named  =    data.response[0].first_name;
+      name  =    data.response[0].first_name;
       ownerID = data.response[0].owner_id;
-    //  alert ("Hello!",name);
+      alert ("Hello!",name);
     
     });
 });
@@ -49,7 +49,7 @@ socket.on('news', function (data) {
 	//Graphics().beginFill("#FFEB70");
 //Graphics().setStrokeStyle(6).beginStroke("#413D3D");
 
-alert(named);
+alert(name);
 //     var hiMSG =  'Привет: ' + named.toString();
 // 	var txtName = new createjs.Text(hiMSG, "bold 48pt Courier New", "#000000");	
 // 	txtName.x = 50;
