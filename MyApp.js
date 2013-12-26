@@ -12,13 +12,13 @@ var vk = new VK({
     'mode'      : 'sig'
 });
 
- vk.request('getProfiles', {'uids' : '8857627'});
-    // и так далее...
-    vk.on('done:getProfiles', function(_o) {
-        console.log(_o);
-      var  username = _o['response'][0]['first_name'];
-        alert(username);
-    });
+//  vk.request('getProfiles', {'uids' : '8857627'});
+//     // и так далее...
+//     vk.on('done:getProfiles', function(_o) {
+//         console.log(_o);
+//       var  username = _o['response'][0]['first_name'];
+//         alert(username);
+//     });
 
 
 server.listen(port, function() {
