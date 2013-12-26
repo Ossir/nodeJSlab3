@@ -8,9 +8,7 @@ server.listen(port, function() {
    console.log('Listening on ' + port);
 });
 
-app.get('/', function (request, response) {
-   response.sendfile(__dirname + '/index.html');
-});
+
 app.use(express.static(__dirname + '/public'));
 
 var io = require('socket.io').listen(server);
@@ -36,25 +34,48 @@ else
     console.log('not connected')
     
 
-conn.collection('collectionName').update(
-{
-   user:"userToUpdate"
-},
-{
-   user:"userToUpdate",
-   someData: "someNewData"
-},
-{
-   upsert:true
-});
 
-conn.collection('collectionName').findOne(
+
+
+
+app.get('/', function (request, response)
 {
-   user:"userToFind"
-},
-function(err, doc)
-{
-   if (err) { /* something is wrong */ }
-   if (doc) { var foundData = doc.someData; }
+   response.sendfile(__dirname + '/index.html');
+   
+   var ip = request.connection.remoteAddress;
+   var user = {ipAddress: ip, dateConnection: new Date()};
+
+    conn.collection('collectionName').findOne(
+    {
+      ipAddress:user.ipAddress
+    },
+    function(err, doc)
+    {
+    if (err) { /* something is wrong */ }
+    if (doc) //если пользователь есть, то обновляем
+     {  console.log("updated  ");
+         conn.collection('collectionName').update(
+        {
+            ipAddress:user.ipAddress
+        },
+        {
+   
+            date: user.dateConnection
+            
+        },
+        {
+            
+         upsert:true
+        });
+     }
+        // var foundData = doc.someData; 
+     else //если нет, то создаем
+     {
+         conn.collection('collectionName').insert(user, {safe: true}, function(err, records){
+        console.log("Record added  ");
+         });
+     }
+});
+   
 });
 
