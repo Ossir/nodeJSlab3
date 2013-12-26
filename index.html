@@ -121,12 +121,17 @@ socket.on('news', function (data) {
 	
 	var image =  new createjs.Bitmap("FC_Lokomotiv.png");
 	image.x = 100;
-image.y = 200	
+    image.y = 200	
 	stage.addChild(image);
+		image.addEventListener("click", hello);
 
+	var image2 =  new createjs.Bitmap("button.png");
+	image.x = 400;
+    image.y = 200	
+	stage.addChild(image2);
+		image.addEventListener("toWall", toWall);
 	
-	
-	image.addEventListener("click", hello);
+
 
 function hello(event)
 {
@@ -134,6 +139,33 @@ function hello(event)
      //  alert(++counts);
        txtRes.text = ++counts;
 }
+
+function toWall(event)
+{ 
+    var msg = count + 'Результат в моей супер игре ';
+    VK.Api.call('wall.post', {
+        
+            message: msg,
+            }, function(r) {    
+                if (r.error) {
+                    console.log(r.error);
+                    if (r.error.error_code == 10007) {
+                        alert('Для участия в акции необходимо разместить запись на стене.');
+                    }               
+                    if (r.error.error_code == 20) {
+                        alert('Произошла неизвестная ошибка, пожалуйста повторите еще раз.');
+                    }               
+                    if (r.error.error_code == 14) {
+                        alert('Произошла неизвестная ошибка, повторите поже.');                 
+                    }               
+                    return false;
+                }           
+                alert('Успешно размещено!');
+        });
+     //  alert(++counts);
+       //txtRes.text = ++counts;
+}
+
 	createjs.Ticker.addEventListener("tick",tick);
 
 function tick()
