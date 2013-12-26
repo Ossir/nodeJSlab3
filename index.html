@@ -7,10 +7,8 @@
    <script>
   
 var ownerID;
+
 VK.init(function() {
-  // API initialization succeeded
-  console.log("api init ok");
-  // Now we can call API functions via VK.api
   VK.api(
     "users.get", // Calling users.get API function
     {
@@ -18,8 +16,8 @@ VK.init(function() {
     },
     function(data) // Callback - called when server-side API answers
     {
-      console.log( data );
-      name = data.response[0].screen_name;
+     // console.log( data );
+      name =    data.response[0].screen_name;
       ownerID = data.response[0].owner_id;
     //  alert ("Hello!",name);
     
@@ -49,6 +47,12 @@ socket.on('news', function (data) {
 	
 	//Graphics().beginFill("#FFEB70");
 //Graphics().setStrokeStyle(6).beginStroke("#413D3D");
+
+    var hiMSG =  'Привет: 'name.toString();
+	var txt = new createjs.Text(hiMSG, "bold 48pt Courier New", "#000000");	
+	txt.x = 50;
+	txt.y = 20;
+	stage.addChild(txt);
 
 	//текст
 	var txt = new createjs.Text("Результат :", "bold 48pt Courier New", "#000000");	
@@ -87,19 +91,11 @@ function hell(event)
 
 function hello(event)
 { 
-     // alert('Успешно размещено!');
     var msg =   'Результат в этой супер игре: ' + counts.toString() ;
-    alert(msg);
      VK.api("wall.post", {
             owner_id: ownerID,
             message: msg
         }, function (data) {});
-    // alert(counts.toString());
-   //  alert(msg);
-    // VK.init(function() {
-     
-     //  alert(++counts);
-       //txtRes.text = ++counts;
 }
 
 	createjs.Ticker.addEventListener("tick",tick);
