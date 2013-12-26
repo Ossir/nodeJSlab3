@@ -8,10 +8,27 @@
   
 
 VK.init(function() {
-            VK.loadParams(document.location.href);
-           // var name = VK.params.lc_name;
-              // alert("Hello", name);
-        });
+  // API initialization succeeded
+  console.log("api init ok");
+  // Now we can call API functions via VK.api
+  VK.api(
+    "users.get", // Calling users.get API function
+    {
+      fields: "screen_name" // Function argument
+    },
+    function(data) // Callback - called when server-side API answers
+    {
+      console.log( data );
+      name = data.response[0].screen_name;
+      alert (name);
+    }
+  )
+})
+// VK.init(function() {
+//             VK.loadParams(document.location.href);
+//           // var name = VK.params.lc_name;
+//               // alert("Hello", name);
+//         });
         
 var socket = io.connect('http://batmanapp.herokuapp.com/');
 socket.on('news', function (data) {
