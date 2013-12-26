@@ -30,6 +30,12 @@ io.sockets.on('connection', function (socket) {
 var mongo = require('mongoskin');
 var conn = mongo.db('mongodb://venom-lp:spider11@dharma.mongohq.com:10001/nodeJSDataBase');
 
+if (conn)
+    console.log ('connected')
+else
+    console.log('not connected')
+    
+
 conn.collection('collectionName').update(
 {
    user:"userToUpdate"
