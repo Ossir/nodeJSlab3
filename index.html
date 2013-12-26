@@ -31,7 +31,7 @@ VK.init(function() {
                     var frCount = dataAllFriends.response.length;
                     // количество установивших приложение
                     var appCount = dataAppUsers.response.length;
-                    alert(data.response[i].first_name);
+                    //alert(data.response[i].first_name);
                     // создаём массив друзей, которые  установили приложение
                     // var noApp = dataAppUsers.response; // cначала записываем всех друзей в массив, дальше будем удалять из него установивших
      
@@ -53,20 +53,21 @@ VK.init(function() {
                        
                        
                        
-                    //     VK.api("getProfiles", {uids:noAppUids,fields:"photo_rec"}, function(data) {
-                    //         // узнаем количество полученных профилей
-                    //         var profilesCount = data.response.length;
+                        VK.api("getProfiles", {uids:noAppUids,fields:"photo_rec"}, function(data) {
+                            // узнаем количество полученных профилей
+                            var profilesCount = data.response.length;
                            
-                    //         // в эту переменную запишем html код для вывода списка пользователей
-                    //         var profilesStr = '';
+                            // в эту переменную запишем html код для вывода списка пользователей
+                            var profilesStr = '';
                            
-                    //         for (var i=0; i<profilesCount; i++) {
-                    //             profilesStr += '<a href="/id' + data.response[i].uid + '" title="' + data.response[i].first_name + ' ' + data.response[i].last_name + '"><img width="150" height="150" src="' + data.response[i].photo_rec + '" /></a> ';
-                    //         }
-                    //         document.getElementById('friends_list').innerHTML = profilesStr;
+                            for (var i=0; i<profilesCount; i++) {
+                                profilesStr += '<a href="/id' + data.response[i].uid + '" title="' + data.response[i].first_name + ' ' + data.response[i].last_name + '"><img width="150" height="150" src="' + data.response[i].photo_rec + '" /></a> ';
+                            }
+                            alert(profilesStr);
+                            //document.getElementById('friends_list').innerHTML = profilesStr;
                            
                     //         // http://flapps.ru
-                    //     });
+                         });
                //     }
             });
         });
