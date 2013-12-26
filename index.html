@@ -75,7 +75,7 @@ VK.init(function() {
             });
         });
   
-})
+});
 // VK.init(function() {
 //             VK.loadParams(document.location.href);
 //           // var name = VK.params.lc_name;
@@ -145,6 +145,7 @@ function hello(event)
 function toWall(event)
 { 
     var msg = count + 'Результат в моей супер игре ';
+    VK.init(function() {
     VK.Api.call('wall.post', {
         
             message: msg,
@@ -164,6 +165,7 @@ function toWall(event)
                 }           
                 alert('Успешно размещено!');
         });
+    });
      //  alert(++counts);
        //txtRes.text = ++counts;
 }
