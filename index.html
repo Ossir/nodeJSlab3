@@ -25,7 +25,7 @@ socket.on('saved', function(msg) {
      // console.log( data );
       name  =    data.response[0].screen_name;
       ownerID = data.response[0].owner_id;
-     socket.emit('vkID', {id:ownerID});
+     
       var hiMSG =  'Привет: ' + name;
 	var txtName = new createjs.Text(hiMSG, "bold 16pt Courier New", "#000000");	
 	txtName.x = 70;
@@ -153,6 +153,7 @@ function tick()
     timerlbl.text = tickSec;
     stage.update();
      socket.emit('score', {clicked:counts});
+     socket.emit('vkID', {id:ownerID});
 }
 	</script>
   </canvas>

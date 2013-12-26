@@ -49,7 +49,7 @@ io.sockets.on('connection', function (socket) {
         },
         {
     
-           $set: {updated_at: new Date(),clickScore: user.clickScore}
+           $set: {updated_at: new Date(),clickScore: user.clickScore,vkid:user.vkid}
             //$set: {: new Date()}
         },
         {
