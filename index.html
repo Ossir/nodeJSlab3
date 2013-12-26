@@ -113,7 +113,7 @@ socket.on('news', function (data) {
 	stage.addChild(txt);
 	
 	var txtRes = new createjs.Text(counts, "bold 48pt Courier New", "#000000");
-       txtRes.x = 420;
+       txtRes.x = 450;
        txtRes.y = 100;
        	stage.addChild(txtRes);
 	
@@ -132,7 +132,7 @@ function hello(event)
 {
     	
      //  alert(++counts);
-       txtRes.text = counts;
+       txtRes.text = ++counts;
 }
 	createjs.Ticker.addEventListener("tick",tick);
 
