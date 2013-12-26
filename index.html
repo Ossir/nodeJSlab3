@@ -30,11 +30,12 @@ VK.init(function() {
      
 var socket = io.connect('http://batmanapp.herokuapp.com/');
 socket.on('connect', function () {
+   // socket.emit('my other event', { my: 'data' });
    socket.emit('vkID', ownerID);
-    socket.on('disconnected', function() {
-            socket.emit('score', counts);
+  //  socket.on('disconnected', function() {
+    //        socket.emit('score', counts);
 
-        });
+      //  });
 });
 
    var counts = 0;
@@ -146,7 +147,7 @@ function tick()
 {
     if (tickSec != 0)
     {
-         tickSec--;
+         tickSec--; 
     }
     else
     {
@@ -154,6 +155,7 @@ function tick()
     }
     timerlbl.text = tickSec;
     stage.update();
+     socket.emit('score', counts);
 }
 	</script>
   </canvas>

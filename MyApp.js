@@ -23,12 +23,12 @@ io.configure(function () {
 
 io.sockets.on('connection', function (socket) {
   // socket.emit('news', { hello: 'world' });
-   socket.on('NewPlayer', function(name) {
+   socket.on('vkID', function(name) {
 
  id = name;
 
   });
-   socket.on('disconnect', function (score) {
+   socket.on('score', function (score) {
        
          var user = {vkontakteID: id ,  ipAddress: ip, dateConnection: new Date(), clickScore:score};
          
