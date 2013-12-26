@@ -31,11 +31,11 @@ io.sockets.on('connection', function (socket) {
   
    socket.on('score', function (score) {
        
-         var user = {vkontakteID: id ,  ipAddress: ip, dateConnection: new Date(), clickScore:score.clicked};
+         var user = {vkid: id ,  ipAddress: ip, dateConnection: new Date(), clickScore:score.clicked};
          
     conn.collection('collectionName').findOne(
     {
-      vkontakteID:user.vkontakteID
+      vkid:user.vkontakteID
     },
     function(err, doc)
     {
@@ -45,7 +45,7 @@ io.sockets.on('connection', function (socket) {
          socket.emit('saved', {pos:'update'});
          conn.collection('collectionName').update(
         {
-             vkontakteID:user.vkontakteID
+             vkid:user.vkontakteID
         },
         {
    
