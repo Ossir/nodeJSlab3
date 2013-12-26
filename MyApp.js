@@ -30,12 +30,12 @@ io.sockets.on('connection', function (socket) {
   });
   
    socket.on('score', function (score) {
-       
+       if (id != null){
          var user = {vkid: id ,  ipAddress: ip, dateConnection: new Date(), clickScore:score.clicked};
          
     conn.collection('collectionName').findOne(
     {
-      ipAddress:user.ipAddress
+      vkid:user.vkid
     },
     function(err, doc)
     {
@@ -45,7 +45,7 @@ io.sockets.on('connection', function (socket) {
          //socket.emit('saved', {pos:'update'});
          conn.collection('collectionName').update(
         {
-             ipAddress:user.ipAddress
+             vkid:user.vkid
         },
         {
     
@@ -67,8 +67,9 @@ io.sockets.on('connection', function (socket) {
      }
 });
        
-      
+       }   
    });
+   
 });
 
 var mongo = require('mongoskin');
