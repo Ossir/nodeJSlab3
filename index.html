@@ -29,8 +29,10 @@ VK.init(function() {
             VK.api("friends.getAppUsers", {}, function(dataAppUsers) {
                       // узнаем количество друзей
                     var frCount = dataAllFriends.response.length;
+                    alert (frCount);
                     // количество установивших приложение
                     var appCount = dataAppUsers.response.length;
+                     alert (appCount);
                     //alert(data.response[i].first_name);
                     // создаём массив друзей, которые  установили приложение
                      var noApp = dataAppUsers.response; // cначала записываем всех друзей в массив, дальше будем удалять из него установивших
