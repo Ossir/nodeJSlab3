@@ -3,23 +3,8 @@ var http = require('http');
 var app = express();
 var server = http.createServer(app);
 var port = process.env.PORT || 3000;
-//var VK = require('vksdk.js');
 
-
-// var vk = new VK({
-//     'appID'     : 4082072,
-//     'appSecret' : 'ovZNCO262q8WyLUhmCIR',
-//     'mode'      : 'sig'
-// });
-
-//  vk.request('getProfiles', {'uids' : '8857627'});
-//     // и так далее...
-//     vk.on('done:getProfiles', function(_o) {
-//         console.log(_o);
-//       var  username = _o['response'][0]['first_name'];
-//         alert(username);
-//     });
-
+var ip;
 
 server.listen(port, function() {
    console.log('Listening on ' + port);
@@ -37,25 +22,13 @@ io.configure(function () {
 
 io.sockets.on('connection', function (socket) {
    socket.emit('news', { hello: 'world' });
-   socket.on('my other event', function (data) {
-      console.log(data);
-   });
-});
-
-var mongo = require('mongoskin');
-var conn = mongo.db('mongodb://venom-lp:spider11@dharma.mongohq.com:10001/nodeJSDataBase');
-
-
-app.get('/', function (request, response)
-{
-   response.sendfile(__dirname + '/index.html');
-   
-   var ip = request.connection.remoteAddress;
-   var user = {ipAddress: ip, dateConnection: new Date()};
-
-    conn.collection('collectionName').findOne(
+   socket.on('my other event', function (vkID, score) {
+       
+         var user = {vkontakteID: vkID ,  ipAddress: ip, dateConnection: new Date(), clickScore:score};
+         
+        conn.collection('vkUsers').findOne(
     {
-      ipAddress:user.ipAddress
+      vkontakteID:user.vkontakteID
     },
     function(err, doc)
     {
@@ -63,9 +36,9 @@ app.get('/', function (request, response)
     if (doc) //если пользователь есть, то обновляем
      {  
         
-         conn.collection('collectionName').update(
+         conn.collection('vkUsers').update(
         {
-            ipAddress:user.ipAddress
+             vkontakteID:user.vkontakteID
         },
         {
    
@@ -84,6 +57,23 @@ app.get('/', function (request, response)
          });
      }
 });
+       
+      
+   });
+});
+
+var mongo = require('mongoskin');
+var conn = mongo.db('mongodb://venom-lp:spider11@dharma.mongohq.com:10001/nodeJSDataBase');
+
+
+app.get('/', function (request, response)
+{
+   response.sendfile(__dirname + '/index.html');
+   
+   ip = request.connection.remoteAddress;
+  // var user = {ipAddress: ip, dateConnection: new Date()};
+
+
    
 });
 
