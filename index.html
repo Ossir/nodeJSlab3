@@ -100,14 +100,7 @@ var cangetClaim = 0;
 
 function hell(event)
 {
-    
-    // if (counts % 5 == 0)
-    // {
-        
-        
-    // }
-    // else{
-     //  alert(++counts);
+
      if (avaliableClick == 0)
      {
          alert('Клики кончились');
@@ -115,7 +108,7 @@ function hell(event)
      else{
          avaliableClick--;
          txtRes.text = ++counts;
-          aval.text  = msgaval;
+         aval.txt = 'Availiable clicks: ' + avaliableClick.toString();
      }
    // }
 }
@@ -125,7 +118,7 @@ function claim(event)
     avaliableClick = avaliableClick + 5;
     image3 =  new createjs.Bitmap("button (1).png");
      cangetClaim = 0;
-     
+      aval.txt = 'Availiable clicks: ' + avaliableClick.toString();
     stage.removeChild(image3);
 }
     
