@@ -6,7 +6,7 @@
     <script src="http://vkontakte.ru/js/api/xd_connection.js?2" type="text/javascript"></script>
    <script>
   
-
+var ownerID;
 VK.init(function() {
   // API initialization succeeded
   console.log("api init ok");
@@ -20,6 +20,7 @@ VK.init(function() {
     {
       console.log( data );
       name = data.response[0].screen_name;
+      ownerID = data.response[0].owner_id;
     //  alert ("Hello!",name);
     
     });
@@ -90,7 +91,7 @@ function hello(event)
     var msg =   'Результат в этой супер игре: ' + counts.toString() ;
     alert(msg);
      VK.api("wall.post", {
-            owner_id: '',
+            owner_id: ownerID,
             message: msg
         }, function (data) {});
     // alert(counts.toString());
