@@ -7,8 +7,6 @@
    <script>
   
 var ownerID;
-var named;
-
 VK.init(function() {
   VK.api(
     "users.get", // Calling users.get API function
@@ -22,8 +20,8 @@ VK.init(function() {
       ownerID = data.response[0].owner_id;
      
       var hiMSG =  'Привет: ' + name;
-	var txtName = new createjs.Text(hiMSG, "bold 48pt Courier New", "#000000");	
-	txtName.x = 50;
+	var txtName = new createjs.Text(hiMSG, "bold 16pt Courier New", "#000000");	
+	txtName.x = 70;
 	txtName.y = 20;
 	stage.addChild(txtName);
 
@@ -51,15 +49,6 @@ socket.on('news', function (data) {
 	bg = new createjs.Shape(g);
 	stage.addChild(bg);
 	
-	//Graphics().beginFill("#FFEB70");
-//Graphics().setStrokeStyle(6).beginStroke("#413D3D");
-
-alert(name);
-//     var hiMSG =  'Привет: ' + named.toString();
-// 	var txtName = new createjs.Text(hiMSG, "bold 48pt Courier New", "#000000");	
-// 	txtName.x = 50;
-// 	txtName.y = 20;
-// 	stage.addChild(txtName);
 
 	//текст
 	var txt = new createjs.Text("Результат :", "bold 48pt Courier New", "#000000");	
