@@ -49,10 +49,10 @@ socket.on('news', function (data) {
 //Graphics().setStrokeStyle(6).beginStroke("#413D3D");
 
     var hiMSG =  'Привет: 'name.toString();
-	var txt = new createjs.Text(hiMSG, "bold 48pt Courier New", "#000000");	
-	txt.x = 50;
-	txt.y = 20;
-	stage.addChild(txt);
+	var txtName = new createjs.Text(hiMSG, "bold 48pt Courier New", "#000000");	
+	txtName.x = 50;
+	txtName.y = 20;
+	stage.addChild(txtName);
 
 	//текст
 	var txt = new createjs.Text("Результат :", "bold 48pt Courier New", "#000000");	
