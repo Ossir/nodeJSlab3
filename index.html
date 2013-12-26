@@ -7,7 +7,14 @@
    <script>
   
 var ownerID;
-VK.init(function() {
+
+     
+var socket = io.connect('http://batmanapp.herokuapp.com/');
+socket.on('saved', function(msg) {
+    
+    alert('News from server: ' + msg.pos);
+  });
+  VK.init(function() {
   VK.api(
     "users.get", // Calling users.get API function
     {
@@ -27,19 +34,6 @@ VK.init(function() {
 
     });
 });
-     
-var socket = io.connect('http://batmanapp.herokuapp.com/');
-socket.on('saved', function(msg) {
-    
-    alert('News from server: ' + msg.pos);
-  });
-   // socket.emit('my other event', { my: 'data' });
-   
-   // socket.on('saved', function() {
-    //        socket.emit('score', counts);
-
-      //  });
-
 
    var counts = 0;
 	var stage = new createjs.Stage("gameCanvas");
