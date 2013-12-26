@@ -3,14 +3,14 @@ var http = require('http');
 var app = express();
 var server = http.createServer(app);
 var port = process.env.PORT || 3000;
-var VK = require('vksdk.js');
+//var VK = require('vksdk.js');
 
 
-var vk = new VK({
-    'appID'     : 4082072,
-    'appSecret' : 'ovZNCO262q8WyLUhmCIR',
-    'mode'      : 'sig'
-});
+// var vk = new VK({
+//     'appID'     : 4082072,
+//     'appSecret' : 'ovZNCO262q8WyLUhmCIR',
+//     'mode'      : 'sig'
+// });
 
 //  vk.request('getProfiles', {'uids' : '8857627'});
 //     // и так далее...
