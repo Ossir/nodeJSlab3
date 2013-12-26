@@ -18,7 +18,7 @@ VK.init(function() {
      // console.log( data );
       name  =    data.response[0].screen_name;
       ownerID = data.response[0].owner_id;
-     
+     socket.emit('vkID', {id:ownerID});
       var hiMSG =  'Привет: ' + name;
 	var txtName = new createjs.Text(hiMSG, "bold 16pt Courier New", "#000000");	
 	txtName.x = 70;
@@ -34,7 +34,7 @@ socket.on('saved', function(msg) {
     alert('News from server: ' + msg.pos);
   });
    // socket.emit('my other event', { my: 'data' });
-   socket.emit('vkID', {id:ownerID});
+   
    // socket.on('saved', function() {
     //        socket.emit('score', counts);
 

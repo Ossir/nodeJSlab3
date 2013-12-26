@@ -39,7 +39,7 @@ io.sockets.on('connection', function (socket) {
     },
     function(err, doc)
     {
-    if (err) {  socket.emit('warning', 'YES');}
+    if (err) {  socket.emit('saved', {pos:'error'});}
     if (doc) //если пользователь есть, то обновляем
      {  
          socket.emit('saved', {pos:'update'});
