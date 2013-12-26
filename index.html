@@ -78,7 +78,7 @@ socket.on('news', function (data) {
 	image2.addEventListener("click", hello);
 	
 	var image3 =  new createjs.Bitmap("button(1).png");
-	image3.x = 4600;
+	image3.x = 400;
     image3.y = 20	
 	stage.addChild(image3);
 	image3.addEventListener("click", claim);
@@ -90,6 +90,7 @@ socket.on('news', function (data) {
 	aval.y = 50;
 	stage.addChild(aval);
 
+var cangetClaim = 0;
     var tickSec = 10;
 	var timerlbl = new createjs.Text(tickSec, "bold 26pt Courier New", "#000000");	
 	timerlbl.x = 450;
@@ -110,10 +111,12 @@ function hell(event)
    // }
 }
 function claim(event)
-{ 
+{ if (cangetClaim == 1){
     tickSec = 10;
     avaliableClick = avaliableClick + 5;
-    
+     image3 =  new createjs.Bitmap("button(1).png");
+     cangetClaim = 0;
+}
     
 }
    
@@ -135,8 +138,13 @@ function tick()
     {
        
          tickSec--;
+        
     }
-    
+    else
+    {
+        cangetClaim = 1;
+         image3 =  new createjs.Bitmap("button(2).png");
+    }
     timerlbl.text = tickSec;
     aval.text = msgaval;
        stage.update();
