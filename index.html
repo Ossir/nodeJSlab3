@@ -78,8 +78,8 @@ socket.on('news', function (data) {
 	image2.addEventListener("click", hello);
 	
 
-var tickSec = 10;
-	var timer = new createjs.Text(tickSec.toString(), "bold 26pt Courier New", "#000000");	
+    var tickSec = 10;
+	var timer = new createjs.Text(tickSec, "bold 26pt Courier New", "#000000");	
 	timer.x = 300;
 	timer.y = 20;
 	stage.addChild(timer);
@@ -120,10 +120,9 @@ function tick()
     {
     tickSec --
     }
-    timer.text = tickSec.toString();
-//image.x = image.x + 10;
-       // ваш код
-	   //alert("tick");
+    
+    timer.text = tickSec;
+
        stage.update();
 }
 	</script>
