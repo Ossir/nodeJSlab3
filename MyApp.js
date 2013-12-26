@@ -61,14 +61,15 @@ app.get('/', function (request, response)
     {
     if (err) { /* something is wrong */ }
     if (doc) //если пользователь есть, то обновляем
-     {  console.log("updated  ");
+     {  
+        
          conn.collection('collectionName').update(
         {
             ipAddress:user.ipAddress
         },
         {
    
-            date: user.dateConnection
+           $set: {updated_at: new Date()}
             
         },
         {
