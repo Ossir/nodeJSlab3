@@ -126,10 +126,12 @@ socket.on('news', function (data) {
 		image.addEventListener("click", hello);
 
 	var image2 =  new createjs.Bitmap("button.png");
-	image.x = 400;
-    image.y = 200	
+	
+	image2.x = 400;
+    image2.y = 200	
 	stage.addChild(image2);
-		image.addEventListener("toWall", toWall);
+	
+	image2.addEventListener("toWall", toWall);
 	
 
 
