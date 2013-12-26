@@ -80,7 +80,7 @@ socket.on('news', function (data) {
 
     var tickSec = 10;
 	var timerlbl = new createjs.Text(tickSec, "bold 26pt Courier New", "#000000");	
-	timerlbl.x = 300;
+	timerlbl.x = 500;
 	timerlbl.y = 20;
 	stage.addChild(timerlbl);
 
@@ -111,17 +111,17 @@ function hello(event)
 
 function tick()
 {
-    // if (tickSec == 0)
-    // {
-    //     tickSec = 10;
+    if (tickSec == 0)
+    {
+        tickSec = 10;
         
-    // }
-    // else
-    // {
-    // tickSec --
-    // }
+    }
+    else
+    {
+    tickSec--;
+    }
     
-    // timer.text = tickSec;
+    timerlbl.text = tickSec;
 
        stage.update();
 }
