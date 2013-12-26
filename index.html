@@ -21,93 +21,10 @@ VK.init(function() {
       console.log( data );
       name = data.response[0].screen_name;
     //  alert ("Hello!",name);
-    }
-  )
-//   VK.addCallback("onSettingsChanged", onSettingsChanged); 
- 
-//     function onSettingsChanged(settings) { 
-//         VK.Api.call('wall.post', {
-        
-//             message: msg,
-//             }, function(r) {    
-//                 if (r.error) {
-//                     console.log(r.error);
-//                     if (r.error.error_code == 10007) {
-//                         alert('Для участия в акции необходимо разместить запись на стене.');
-//                     }               
-//                     if (r.error.error_code == 20) {
-//                         alert('Произошла неизвестная ошибка, пожалуйста повторите еще раз.');
-//                     }               
-//                     if (r.error.error_code == 14) {
-//                         alert('Произошла неизвестная ошибка, повторите поже.');                 
-//                     }               
-//                     return false;
-//                 }           
-//                 alert('Успешно размещено!');
-//         });
-
-// do something 
-    //}
-}
-  
-//   VK.api("friends.get", {}, function(dataAllFriends) {
-//             // после получения списка друзей, выполняем запрос получения списка друзей установивших приложение
-//             VK.api("friends.getAppUsers", {}, function(dataAppUsers) {
-//                       // узнаем количество друзей
-//                     var frCount = dataAllFriends.response.length;
-//                 //    alert (frCount);
-//                     // количество установивших приложение
-//                     var appCount = dataAppUsers.response.length;
-//                   //   alert (appCount);
-//                     //alert(data.response[i].first_name);
-//                     // создаём массив друзей, которые  установили приложение
-//                      var noApp = dataAppUsers.response; // cначала записываем всех друзей в массив, дальше будем удалять из него установивших
-     
-                   
-                 
-                   
-//                     // теперь в массиве noApp храняться id друзей, которые не установили приложение
-//                     var noAppCount = noApp.length;
-//                     // alert (noAppCount);
-//                     document.getElementById('uids_count').innerHTML = 'Количество друзей, установивших приложение: ' + noAppCount;
-                   
-//                     // выведем ссылки на профили трех из этих пользователей
-//                     // смысл получать профили есть только если массив пользователей не пустой
-//                     if (noAppCount>0) {                
-//                         // если не установили приложение менее 4х друзей, то выведем только их
-                       
-//                             // просто превращаем массив пользователей в строку
-//                             var noAppUids = noApp.join(',');
-                     
-                       
-                       
-                       
-//                         VK.api("getProfiles", {uids:noAppUids,fields:"photo_rec"}, function(data) {
-//                             // узнаем количество полученных профилей
-//                             var profilesCount = data.response.length;
-                           
-//                             // в эту переменную запишем html код для вывода списка пользователей
-//                             var profilesStr = '';
-                           
-//                             for (var i=0; i<profilesCount; i++) {
-//                                 profilesStr += '<a href="/id' + data.response[i].uid + '" title="' + data.response[i].first_name + ' ' + data.response[i].last_name + '"><img width="150" height="150" src="' + data.response[i].photo_rec + '" /></a> ';
-//                             }
-//                             alert(profilesStr);
-//                             //document.getElementById('friends_list').innerHTML = profilesStr;
-                           
-//                     //         // http://flapps.ru
-//                          });
-//                     }
-//             });
-//         });
-  
+    
+    });
 });
-// VK.init(function() {
-//             VK.loadParams(document.location.href);
-//           // var name = VK.params.lc_name;
-//               // alert("Hello", name);
-//         });
-        
+     
 var socket = io.connect('http://batmanapp.herokuapp.com/');
 socket.on('news', function (data) {
    console.log(data);
