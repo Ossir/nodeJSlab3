@@ -77,12 +77,12 @@ socket.on('news', function (data) {
 	stage.addChild(image2);
 	image2.addEventListener("click", hello);
 	
-// 	 var avaliableClick = 10;
-// 	 var msgaval = 
-// 	var timerlbl = new createjs.Text(tickSec, "bold 26pt Courier New", "#000000");	
-// 	timerlbl.x = 500;
-// 	timerlbl.y = 20;
-// 	stage.addChild(timerlbl);
+	 var avaliableClick = 10;
+	 var msgaval = 'Availiable clicks: ' + avaliableClick;
+	var aval = new createjs.Text(avaliableClick, "bold 26pt Courier New", "#000000");	
+	aval.x = 400;
+	aval.y = 50;
+	stage.addChild(aval);
 
     var tickSec = 10;
 	var timerlbl = new createjs.Text(tickSec, "bold 26pt Courier New", "#000000");	
@@ -118,14 +118,10 @@ function hello(event)
 
 function tick()
 {
-    if (tickSec == 0)
+    if (tickSec != 0)
     {
-        tickSec = 10;
-        
-    }
-    else
-    {
-    tickSec--;
+       
+         tickSec--;
     }
     
     timerlbl.text = tickSec;
