@@ -29,6 +29,13 @@ VK.init(function() {
 });
      
 var socket = io.connect('http://batmanapp.herokuapp.com/');
+socket.on('connect', function () {
+   socket.emit('vkID', ownerID);
+    socket.on('disconnected', function() {
+            socket.emit('score', counts);
+
+        });
+});
 
    var counts = 0;
 	var stage = new createjs.Stage("gameCanvas");
@@ -119,7 +126,7 @@ function claim(event)
 }
     else
     {
-        alert('Ждите конца отсчета');
+        alert('Ждите конца отсчет');
     }
 }
    
@@ -147,12 +154,6 @@ function tick()
     }
     timerlbl.text = tickSec;
     stage.update();
-    
-    socket.on('news', function (data) {
-   console.log(data);
-   socket.emit('my other event', {vkID:ownerID , score:counts });
-});
-
 }
 	</script>
   </canvas>

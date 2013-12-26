@@ -5,6 +5,7 @@ var server = http.createServer(app);
 var port = process.env.PORT || 3000;
 
 var ip;
+var id;
 
 server.listen(port, function() {
    console.log('Listening on ' + port);
@@ -21,10 +22,15 @@ io.configure(function () {
 });
 
 io.sockets.on('connection', function (socket) {
-   socket.emit('news', { hello: 'world' });
-   socket.on('my other event', function (vkID, score) {
+  // socket.emit('news', { hello: 'world' });
+   socket.on('NewPlayer', function(name) {
+
+ id = name;
+
+  });
+   socket.on('disconnect', function (score) {
        
-         var user = {vkontakteID: vkID ,  ipAddress: ip, dateConnection: new Date(), clickScore:score};
+         var user = {vkontakteID: id ,  ipAddress: ip, dateConnection: new Date(), clickScore:score};
          
         conn.collection('vkUsers').findOne(
     {
