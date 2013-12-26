@@ -78,24 +78,24 @@ socket.on('news', function (data) {
 	image2.addEventListener("click", hello);
 	
 
-    var tickSec = 10;
-	var timer = new createjs.Text(tickSec, "bold 26pt Courier New", "#000000");	
-	timer.x = 300;
-	timer.y = 20;
-	stage.addChild(timer);
+//     var tickSec = 10;
+// 	var timer = new createjs.Text(tickSec, "bold 26pt Courier New", "#000000");	
+// 	timer.x = 300;
+// 	timer.y = 20;
+// 	stage.addChild(timer);
 
 function hell(event)
 {
     
-    if (counts % 5 == 0)
-    {
+    // if (counts % 5 == 0)
+    // {
         
         
-    }
-    else{
+    // }
+    // else{
      //  alert(++counts);
        txtRes.text = ++counts;
-    }
+   // }
 }
 
 function hello(event)
@@ -107,21 +107,21 @@ function hello(event)
         }, function (data) {});
 }
 
-//	createjs.Ticker.addEventListener("tick",tick);
+	createjs.Ticker.addEventListener("tick",tick);
 
 function tick()
 {
-    if (tickSec == 0)
-    {
-        tickSec = 10;
+    // if (tickSec == 0)
+    // {
+    //     tickSec = 10;
         
-    }
-    else
-    {
-    tickSec --
-    }
+    // }
+    // else
+    // {
+    // tickSec --
+    // }
     
-    timer.text = tickSec;
+    // timer.text = tickSec;
 
        stage.update();
 }
