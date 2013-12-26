@@ -35,7 +35,7 @@ io.sockets.on('connection', function (socket) {
          
     conn.collection('collectionName').findOne(
     {
-      vkid:user.vkontakteID
+      ipAddress:user.ipAddress
     },
     function(err, doc)
     {
@@ -45,7 +45,7 @@ io.sockets.on('connection', function (socket) {
          socket.emit('saved', {pos:'update'});
          conn.collection('collectionName').update(
         {
-             vkid:user.vkontakteID
+             ipAddress:user.ipAddress
         },
         {
    
