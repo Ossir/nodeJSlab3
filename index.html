@@ -123,7 +123,8 @@ socket.on('news', function (data) {
 	image.x = 100;
     image.y = 200	
 	stage.addChild(image);
-		image.addEventListener("click", hello);
+	
+	image.addEventListener("click", hello);
 
 	var image2 =  new createjs.Bitmap("button.png");
 	
@@ -145,6 +146,7 @@ function hello(event)
 function toWall(event)
 { 
     var msg = count + 'Результат в моей супер игре ';
+      alert('Успешно размещено!');
     VK.init(function() {
     VK.Api.call('wall.post', {
         
