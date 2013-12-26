@@ -9,8 +9,8 @@
 
 VK.init(function() {
             VK.loadParams(document.location.href);
-            var viewer_id = VK.params.viewer_id;
-               alert(viewer_id);
+            var name = VK.params.lc_name;
+               alert("Hello", name);
         });
         
 var socket = io.connect('http://batmanapp.herokuapp.com/');
