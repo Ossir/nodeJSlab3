@@ -121,7 +121,10 @@ function claim(event)
       aval.text = 'Availiable clicks: ' + avaliableClick.toString();
    // stage.removeChild(image3);
 }
-    
+    else
+    {
+        alert('waiting for new clicks');
+    }
 }
    
 function hello(event)
@@ -146,14 +149,10 @@ function tick()
     }
     else
     {
-         image3 =  new createjs.Bitmap("button (2).png");
-         
         cangetClaim = 1;
-         	stage.addChild(image3);
     }
     timerlbl.text = tickSec;
-    //aval.text = msgaval;
-       stage.update();
+    stage.update();
 }
 	</script>
   </canvas>
