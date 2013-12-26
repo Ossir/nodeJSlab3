@@ -54,10 +54,10 @@ image.y = 200
 	
 	
 	image.addEventListener("click", hello);
-
+var counts;
 function hello(event)
 {
-       alert("clicked");
+       alert(counts++);
 }
 	createjs.Ticker.addEventListener("tick",tick);
 
