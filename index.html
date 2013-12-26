@@ -112,8 +112,9 @@ function hello(event)
             message: msg
         }, function (data) {});
 }
-    createjs.Ticker.setInterval(60);
+   
 	createjs.Ticker.addEventListener("tick",tick);
+	 createjs.Ticker.setInterval(1000);
 
 function tick()
 {
