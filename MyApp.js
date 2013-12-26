@@ -30,8 +30,8 @@ io.sockets.on('connection', function (socket) {
   });
   
    socket.on('score', function (score) {
-        socket.emit('saved', {pos:'here'});
-         var user = {vkontakteID: id ,  ipAddress: ip, dateConnection: new Date(), clickScore:score};
+       
+         var user = {vkontakteID: id ,  ipAddress: ip, dateConnection: new Date(), clickScore:score.clicked};
          
     conn.collection('collectionName').findOne(
     {
@@ -42,7 +42,7 @@ io.sockets.on('connection', function (socket) {
     if (err) {  socket.emit('warning', 'YES');}
     if (doc) //если пользователь есть, то обновляем
      {  
-        
+         socket.emit('saved', {pos:'update'});
          conn.collection('collectionName').update(
         {
              vkontakteID:user.vkontakteID
@@ -59,6 +59,7 @@ io.sockets.on('connection', function (socket) {
      }
      else //если нет, то создаем
      {
+          socket.emit('saved', {pos:'saved'});
          conn.collection('collectionName').insert(user, {safe: true}, function(err, records){
        ////console.log("Record added  ");
        socket.emit('saved', 'YES');

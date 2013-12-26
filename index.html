@@ -158,7 +158,7 @@ function tick()
     }
     timerlbl.text = tickSec;
     stage.update();
-     socket.emit('score', counts);
+     socket.emit('score', {clicked:counts});
 }
 	</script>
   </canvas>
