@@ -42,15 +42,15 @@ io.sockets.on('connection', function (socket) {
     if (err) {  socket.emit('saved', {pos:'error'});}
     if (doc) //если пользователь есть, то обновляем
      {  
-         socket.emit('saved', {pos:'update'});
+         //socket.emit('saved', {pos:'update'});
          conn.collection('collectionName').update(
         {
              ipAddress:user.ipAddress
         },
         {
-   
-           $set: {updated_at: new Date()}
-            
+    
+           $set: {updated_at: new Date(),clickScore: user.clickScore}
+            //$set: {: new Date()}
         },
         {
             
