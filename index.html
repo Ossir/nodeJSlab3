@@ -107,7 +107,7 @@ socket.on('news', function (data) {
 //Graphics().setStrokeStyle(6).beginStroke("#413D3D");
 
 	//текст
-	var txt = new createjs.Text("Hello world", "bold 48pt Courier New", "#000000");	
+	var txt = new createjs.Text("Результат :", "bold 48pt Courier New", "#000000");	
 	txt.x = 20;
 	txt.y = 100;
 	stage.addChild(txt);
@@ -126,7 +126,12 @@ image.y = 200
 var counts = 0;
 function hello(event)
 {
+    	
        alert(++counts);
+       var txtRes = new createjs.Text(counts, "bold 48pt Courier New", "#000000");
+       txtRes.x = 100;
+       txtRes.y = 100;
+       	stage.addChild(txtRes);
 }
 	createjs.Ticker.addEventListener("tick",tick);
 
