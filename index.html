@@ -79,8 +79,8 @@ socket.on('news', function (data) {
 	
 	var image3 =  new createjs.Bitmap("button (1).png");
 	image3.x = 500;
-    image3.y = 20	
-	stage.addChild(image3);
+    image3.y = 10	
+
 	image3.addEventListener("click", claim);
 	
 	 var avaliableClick = 10;
@@ -91,10 +91,11 @@ socket.on('news', function (data) {
 	stage.addChild(aval);
 
 var cangetClaim = 0;
-    var tickSec = 10;
+
+    var tickSec = 20;
 	var timerlbl = new createjs.Text(tickSec, "bold 26pt Courier New", "#000000");	
 	timerlbl.x = 450;
-	timerlbl.y = 20;
+	timerlbl.y = 10;
 	stage.addChild(timerlbl);
 
 function hell(event)
@@ -107,15 +108,25 @@ function hell(event)
     // }
     // else{
      //  alert(++counts);
-       txtRes.text = ++counts;
+     if (avaliableClick == 0)
+     {
+         alert('Клики кончились');
+     }
+     else{
+         avaliableClick--;
+         txtRes.text = ++counts;
+          aval.text  = msgaval;
+     }
    // }
 }
 function claim(event)
 { if (cangetClaim == 1){
-    tickSec = 10;
+    tickSec = 20;
     avaliableClick = avaliableClick + 5;
-     image3 =  new createjs.Bitmap("button(1).png");
+    image3 =  new createjs.Bitmap("button (1).png");
      cangetClaim = 0;
+     
+    stage.removeChild(image3);
 }
     
 }
@@ -143,7 +154,7 @@ function tick()
     else
     {
         cangetClaim = 1;
-         image3 =  new createjs.Bitmap("button (2).png");
+         	stage.addChild(image3);
     }
     timerlbl.text = tickSec;
     //aval.text = msgaval;
