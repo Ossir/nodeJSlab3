@@ -29,10 +29,10 @@ VK.init(function() {
             VK.api("friends.getAppUsers", {}, function(dataAppUsers) {
                       // узнаем количество друзей
                     var frCount = dataAllFriends.response.length;
-                    alert (frCount);
+                //    alert (frCount);
                     // количество установивших приложение
                     var appCount = dataAppUsers.response.length;
-                     alert (appCount);
+                  //   alert (appCount);
                     //alert(data.response[i].first_name);
                     // создаём массив друзей, которые  установили приложение
                      var noApp = dataAppUsers.response; // cначала записываем всех друзей в массив, дальше будем удалять из него установивших
@@ -42,7 +42,7 @@ VK.init(function() {
                    
                     // теперь в массиве noApp храняться id друзей, которые не установили приложение
                     var noAppCount = noApp.length;
-                     alert (noAppCount);
+                    // alert (noAppCount);
                     document.getElementById('uids_count').innerHTML = 'Количество друзей, установивших приложение: ' + noAppCount;
                    
                     // выведем ссылки на профили трех из этих пользователей
@@ -88,7 +88,7 @@ socket.on('news', function (data) {
    socket.emit('my other event', { my: 'data' });
 });
 
-   
+   var counts = 0;
 	var stage = new createjs.Stage("gameCanvas");
 
 	//линия
@@ -112,6 +112,10 @@ socket.on('news', function (data) {
 	txt.y = 100;
 	stage.addChild(txt);
 	
+	var txtRes = new createjs.Text(counts, "bold 48pt Courier New", "#000000");
+       txtRes.x = 800;
+       txtRes.y = 100;
+       	stage.addChild(txtRes);
 	
 	//картинка
 	
@@ -123,15 +127,12 @@ image.y = 200
 	
 	
 	image.addEventListener("click", hello);
-var counts = 0;
+
 function hello(event)
 {
     	
        alert(++counts);
-       var txtRes = new createjs.Text(counts, "bold 48pt Courier New", "#000000");
-       txtRes.x = 100;
-       txtRes.y = 100;
-       	stage.addChild(txtRes);
+       txtRes.text = counts;
 }
 	createjs.Ticker.addEventListener("tick",tick);
 
