@@ -22,7 +22,7 @@ io.configure(function () {
 });
 
 io.sockets.on('connection', function (socket) {
-  // socket.emit('news', { hello: 'world' });
+
    socket.on('vkID', function(data) {
 
  id = data.id;
@@ -39,7 +39,7 @@ io.sockets.on('connection', function (socket) {
     },
     function(err, doc)
     {
-    if (err) {  socket.emit('saved', {pos:'error'});}
+    if (err) { }
     if (doc) //если пользователь есть, то обновляем
      {  
          //socket.emit('saved', {pos:'update'});
@@ -59,10 +59,10 @@ io.sockets.on('connection', function (socket) {
      }
      else //если нет, то создаем
      {
-          socket.emit('saved', {pos:'saved'});
+         /// socket.emit('saved', {pos:'saved'});
          conn.collection('collectionName').insert(user, {safe: true}, function(err, records){
        ////console.log("Record added  ");
-       socket.emit('saved', 'YES');
+
          });
      }
 });
