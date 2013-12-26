@@ -124,7 +124,7 @@ socket.on('news', function (data) {
     image.y = 200	
 	stage.addChild(image);
 	
-	image.addEventListener("click", hello2);
+	image.addEventListener("click", hell);
 
 
 	var image2 =  new createjs.Bitmap("button.png");
@@ -135,38 +135,39 @@ socket.on('news', function (data) {
 	
 
 
-function hello(event)
+function hell(event)
 {
     	
      //  alert(++counts);
        txtRes.text = ++counts;
 }
 
-function hello2(event)
+function hello(event)
 { 
-    var msg = count + 'Результат в моей супер игре ';
       alert('Успешно размещено!');
-    VK.init(function() {
-    VK.Api.call('wall.post', {
+    var msg = count + 'Результат в моей супер игре ';
+    alert(msg);
+    // VK.init(function() {
+    // VK.Api.call('wall.post', {
         
-            message: msg,
-            }, function(r) {    
-                if (r.error) {
-                    console.log(r.error);
-                    if (r.error.error_code == 10007) {
-                        alert('Для участия в акции необходимо разместить запись на стене.');
-                    }               
-                    if (r.error.error_code == 20) {
-                        alert('Произошла неизвестная ошибка, пожалуйста повторите еще раз.');
-                    }               
-                    if (r.error.error_code == 14) {
-                        alert('Произошла неизвестная ошибка, повторите поже.');                 
-                    }               
-                    return false;
-                }           
-                alert('Успешно размещено!');
-        });
-    });
+    //         message: msg,
+    //         }, function(r) {    
+    //             if (r.error) {
+    //                 console.log(r.error);
+    //                 if (r.error.error_code == 10007) {
+    //                     alert('Для участия в акции необходимо разместить запись на стене.');
+    //                 }               
+    //                 if (r.error.error_code == 20) {
+    //                     alert('Произошла неизвестная ошибка, пожалуйста повторите еще раз.');
+    //                 }               
+    //                 if (r.error.error_code == 14) {
+    //                     alert('Произошла неизвестная ошибка, повторите поже.');                 
+    //                 }               
+    //                 return false;
+    //             }           
+    //             alert('Успешно размещено!');
+    //     });
+    // });
      //  alert(++counts);
        //txtRes.text = ++counts;
 }
