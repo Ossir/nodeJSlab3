@@ -80,7 +80,7 @@ socket.on('news', function (data) {
 	var image3 =  new createjs.Bitmap("button (1).png");
 	image3.x = 500;
     image3.y = 10	
-
+	stage.addChild(image3);
 	image3.addEventListener("click", claim);
 	
 	 var avaliableClick = 10;
@@ -108,7 +108,7 @@ function hell(event)
      else{
          avaliableClick--;
          txtRes.text = ++counts;
-         aval.txt = 'Availiable clicks: ' + avaliableClick.toString();
+         aval.text = 'Availiable clicks: ' + avaliableClick.toString();
      }
    // }
 }
@@ -118,8 +118,8 @@ function claim(event)
     avaliableClick = avaliableClick + 5;
     image3 =  new createjs.Bitmap("button (1).png");
      cangetClaim = 0;
-      aval.txt = 'Availiable clicks: ' + avaliableClick.toString();
-    stage.removeChild(image3);
+      aval.text = 'Availiable clicks: ' + avaliableClick.toString();
+   // stage.removeChild(image3);
 }
     
 }
@@ -146,6 +146,8 @@ function tick()
     }
     else
     {
+         image3 =  new createjs.Bitmap("button (2).png");
+         
         cangetClaim = 1;
          	stage.addChild(image3);
     }
