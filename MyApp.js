@@ -32,7 +32,7 @@ io.sockets.on('connection', function (socket) {
        
          var user = {vkontakteID: id ,  ipAddress: ip, dateConnection: new Date(), clickScore:score};
          
-        conn.collection('vkUsers').findOne(
+        conn.collection('collectionName').findOne(
     {
       vkontakteID:user.vkontakteID
     },
@@ -42,7 +42,7 @@ io.sockets.on('connection', function (socket) {
     if (doc) //если пользователь есть, то обновляем
      {  
         
-         conn.collection('vkUsers').update(
+         conn.collection('collectionName').update(
         {
              vkontakteID:user.vkontakteID
         },
