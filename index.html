@@ -31,7 +31,7 @@ socket.on('saved', function(msg) {
 	txtName.x = 70;
 	txtName.y = 20;
 	stage.addChild(txtName);
-
+socket.emit('vkID', {id:name});
     });
 });
 
@@ -153,7 +153,7 @@ function tick()
     timerlbl.text = tickSec;
     stage.update();
      socket.emit('score', {clicked:counts});
-     socket.emit('vkID', {id:ownerID});
+    // socket.emit('vkID', {id:ownerID});
 }
 	</script>
   </canvas>
