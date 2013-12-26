@@ -28,17 +28,18 @@ io.sockets.on('connection', function (socket) {
  id = name;
 
   });
+  
    socket.on('score', function (score) {
-       
+        socket.emit('saved', 'here');
          var user = {vkontakteID: id ,  ipAddress: ip, dateConnection: new Date(), clickScore:score};
          
-        conn.collection('collectionName').findOne(
+    conn.collection('collectionName').findOne(
     {
       vkontakteID:user.vkontakteID
     },
     function(err, doc)
     {
-    if (err) { /* something is wrong */ }
+    if (err) {  socket.emit('warning', 'YES');}
     if (doc) //если пользователь есть, то обновляем
      {  
         
@@ -59,7 +60,8 @@ io.sockets.on('connection', function (socket) {
      else //если нет, то создаем
      {
          conn.collection('collectionName').insert(user, {safe: true}, function(err, records){
-        console.log("Record added  ");
+       ////console.log("Record added  ");
+       socket.emit('saved', 'YES');
          });
      }
 });
