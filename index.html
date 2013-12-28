@@ -110,6 +110,7 @@ function hell(event)
          avaliableClick--;
          txtRes.text = ++counts;
          aval.text = 'Availiable clicks: ' + avaliableClick.toString();
+          socket.emit('score', {clicked:counts});
      }
    // }
 }
@@ -152,7 +153,7 @@ function tick()
     }
     timerlbl.text = tickSec;
     stage.update();
-     socket.emit('score', {clicked:counts});
+    
     // socket.emit('vkID', {id:ownerID});
 }
 	</script>
